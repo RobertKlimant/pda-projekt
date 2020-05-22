@@ -1,0 +1,132 @@
+body {
+  padding: 0;
+  margin: 0;
+  background-color: rgb(235, 235, 235);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.window-user {
+  position: absolute;
+  display: inline-block;
+  min-width: 300px;
+  max-height: 500px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgb(250, 250, 250);
+  padding: 15px 0;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+  -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+  text-align: center;
+}
+
+.window-user-name {
+  position: relative;
+  display: block;
+  font-weight: 100;
+  font-size: 30px;
+}
+
+.window-user-kilometers, .window-user-amount, .window-user-car {
+  position: relative;
+  display: block;
+  font-size: 16px;
+  margin: 7px 0;
+  font-weight: 200;
+  padding: 0 5px;
+}
+
+.window-user-kilometers > b, .window-user-amount > b, .window-user-car > b {
+  font-size: 21px;
+}
+
+.window-user-add, .window-user-logout {
+  position: relative;
+  display: block;
+  width: 90%;
+  height: auto;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  background-color: rgb(33, 150, 243);
+  padding: 10px 0;
+  border-radius: 5px;
+  margin: 10px 0;
+}
+
+.window-user-logout {
+  background-color: rgb(155, 76, 76);
+}
+
+.window-user-drives {
+  position: relative;
+  display: block;
+  width: 90%;
+  height: auto;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgb(200, 200, 200);
+  padding: 10px 0 0 0;
+  border-radius: 5px;
+}
+
+.window-user-drives-title {
+  position: sticky;
+  display: block;
+  top: 0;
+  left: 0;
+  width: auto;
+  height: auto;
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.window-user-drives-views {
+  position: relative;
+  display: block;
+  width: auto;
+  max-height: 200px;
+  margin-top: 10px;
+  overflow: auto;
+}
+
+.window-user-drives-views-info {
+  position: relative;
+  display: block;
+  width: 95%;
+  height: auto;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgb(250, 250, 250);
+  border-radius: 5px;
+  padding: 5px 0;
+  margin: 10px 0;
+}
+
+.window-user-drives-views-info-kilometers, .window-user-drives-views-info-amount, .window-user-drives-views-info-car {
+  position: relative;
+  display: inline-block;
+  width: calc(33% - 5px);
+  height: auto;
+  font-size: 15px;
+}
+
+.window-user-drives-views-info-kilometers-title, .window-user-drives-views-info-amount-title, .window-user-drives-views-info-car-title {
+  position: relative;
+  display: block;
+  font-weight: 100;
+}
+
+.window-user-drives-views-info-kilometers-info, .window-user-drives-views-info-amount-info, .window-user-drives-views-info-car-info {
+  position: relative;
+  display: block;
+  font-weight: 600;
+  font-size: 18px;
+}

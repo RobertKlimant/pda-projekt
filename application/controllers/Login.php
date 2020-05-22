@@ -16,13 +16,13 @@ class Login extends CI_Controller {
     $data = array();
 
     //ziskanie sprav zo session
-		if($this->session->userdata('error_msg')){
+		/*if($this->session->userdata('error_msg')){
 			$data['error_msg'] = $this->session->userdata('error_msg');
 			$this->session->unset_userdata('error_msg');
-    }
+    }*/
     
     if ($this->session->userdata('loggedin') == 'true') {
-      //redirect('/users');
+      redirect('/users');
     }
 
     $data['title'] = 'Login';
@@ -44,7 +44,6 @@ class Login extends CI_Controller {
           $this->session->set_userdata('check', $check);
           foreach ($check as $value) {
             $this->session->set_userdata('check', $value['id']);
-            //$data['idtest'] = $value['id'];
           }
           redirect('/users');
         } else {

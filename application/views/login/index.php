@@ -18,13 +18,4 @@
       </form>
       <div class="error"><?php if (!empty($error_msg)) {echo $error_msg;}?></div>
     </div>
-
-    <?php 
-    if (!empty($idtest)) {
-      /*foreach ($idtest as $value) {
-        echo $value['id'].' '.$value['meno'];
-      }*/
-      echo $idtest;
-    }
-    ?>
   </div>
