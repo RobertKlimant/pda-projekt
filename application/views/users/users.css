@@ -130,3 +130,16 @@ a {
   font-weight: 600;
   font-size: 18px;
 }
+
+.window-detail-car {
+  position: relative;
+  display: block;
+  font-size: 18px;
+  font-weight: 100;
+  margin-top: 5px;
+}
+
+.link {
+  color: rgb(33, 150, 243);
+  text-decoration: underline;
+}

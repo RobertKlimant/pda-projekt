@@ -5,6 +5,7 @@
     <div class="window-user-name"><?php if (!empty($array)){
       echo $array[0]['meno'].' '.$array[0]['priezvisko'];
     }?></div>
+    <span style="text-decoration: underline; font-size: 14px;">Dnes: <?php echo date("d.m.Y")?></span>
     <div class="window-user-kilometers">Najazdené: <b><?php
       if (!empty($array)) {
         $sumKilometre = 0;

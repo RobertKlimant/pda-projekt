@@ -39,6 +39,22 @@ class Users_model extends CI_Model {
   }
 
   public function pridajJazdu($check, $kilometers, $amount, $id_car) {
-    
+    $data = array(
+      'kilometre'=>$kilometers,
+      'id_sofer'=>$check,
+      'suma'=>$amount,
+      'auto'=>$id_car
+    );
+    $insert = $this->db->insert('rides', $data);
+    return $insert;
+  }
+
+  public function detailJazdy($id, $id_jazdy) {
+    $this->db->select('*');
+    $this->db->from('rides');
+    $this->db->join('cars', 'cars.id_car = rides.auto');
+    $this->db->where('rides.id_jazda', $id_jazdy);     
+    $query = $this->db->get();
+    return $query->result_array();
   }
 }

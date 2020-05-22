@@ -5,8 +5,6 @@ class Users extends CI_Controller {
 	function __construct()
 	{
 		parent::__construct();
-		$this->load->helper('form');
-		$this->load->library('form_validation');
 		$this->load->model('Users_model');
 	}
 
@@ -43,6 +41,10 @@ class Users extends CI_Controller {
 
 		$check = $this->session->userdata('check');
 
+		if (empty($check)) {
+			redirect('/login');
+		}
+
 		$array = $this->Users_model->nacitajData($check);
 
 		$data['array'] = $array;
@@ -57,6 +59,9 @@ class Users extends CI_Controller {
 				$data['error_msg'] = 'Vyplň všetky polia';
 			} else {
 				$pridat = $this->Users_model->pridajJazdu($check, $kilometers, $amount, $array[0]['id_car']);
+				if ($pridat) {
+					redirect('/users');
+				}
 			}
 		}
 
@@ -72,9 +77,16 @@ class Users extends CI_Controller {
 
 		$check = $this->session->userdata('check');
 
+		if (empty($check)) {
+			redirect('/login');
+		}
+
+		$view = $this->Users_model->detailJazdy($check, $id_jazda);
+
+		$data['array'] = $view;
+
 		$this->load->view('templates/header', $data);
 		$this->load->view('users/view', $data);
 		$this->load->view('templates/footer', $data);
-		$data['error_msg'] = '';
 	}
 }
