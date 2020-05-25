@@ -3,7 +3,7 @@
 <body>
   <div class="window">
     <div class="window-login">
-      <a href="<?php echo site_url('users/');?>">Späť</a>
+      <a href="<?php echo site_url('users/');?>" class="link">Späť</a>
       <h1 class="window-login-title">Pridaj jazdu <?php echo $array[0]['meno']?></h1>
       <form method="post" action="">
       <div class="input-box">

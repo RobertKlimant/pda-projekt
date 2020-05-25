@@ -17,7 +17,25 @@ class Users_model extends CI_Model {
       $this->db->join('cars', 'users.id = cars.vodic');
       $this->db->where('rides.id_sofer', $id);
       $query = $this->db->get();
-      return $query->result_array();
+
+      if ($query->num_rows() < 1) {
+        $this->db->select('*');
+        $this->db->from('users');
+        $this->db->join('cars', 'users.id = cars.vodic');
+        $this->db->where('users.id', $id);
+        $query = $this->db->get();
+        $car = $query->result_array();
+        $car[0] += array('kilometre'=>'0', 'suma'=>'0');
+        return $car;
+      } else {
+        $this->db->select('*');
+        $this->db->from('rides');
+        $this->db->join('users', 'rides.id_sofer = users.id');
+        $this->db->join('cars', 'users.id = cars.vodic');
+        $this->db->where('rides.id_sofer', $id);
+        $query = $this->db->get();
+        return $query->result_array();
+      }
     } else {
       $this->db->select('*');
       $this->db->from('rides');
@@ -33,7 +51,7 @@ class Users_model extends CI_Model {
     $this->db->from('rides');
     $this->db->join('cars', 'cars.id_car = rides.auto');
     $this->db->where('rides.id_sofer', $id);
-    $this->db->order_by('rides.time','desc');        
+    $this->db->order_by('rides.time','desc');
     $query = $this->db->get();
     return $query->result_array();
   }

@@ -10,10 +10,12 @@
       if (!empty($array)) {
         $sumKilometre = 0;
         $act_date = date("Y-m-d");
-        foreach($array as $value) {
-          $moment_date = date("Y-m-d", strtotime($value['time']));
-          if ($act_date == $moment_date) {
-            $sumKilometre += $value['kilometre'];
+        if ($array[0]['kilometre'] != 0) {
+          foreach($array as $value) {
+            $moment_date = date("Y-m-d", strtotime($value['time']));
+            if ($act_date == $moment_date) {
+              $sumKilometre += $value['kilometre'];
+            }
           }
         }
         echo $sumKilometre;
@@ -23,10 +25,12 @@
       if (!empty($array)) {
         $sumSuma = 0;
         $act_date = date("Y-m-d");
-        foreach($array as $value) {
-          $moment_date = date("Y-m-d", strtotime($value['time']));
-          if ($act_date == $moment_date) {
-            $sumSuma += $value['suma'];
+        if ($array[0]['kilometre'] != 0) {
+          foreach($array as $value) {
+            $moment_date = date("Y-m-d", strtotime($value['time']));
+            if ($act_date == $moment_date) {
+              $sumSuma += $value['suma'];
+            }
           }
         }
         echo $sumSuma;
@@ -50,7 +54,7 @@
         }
       }
     ?>
-    <a href=""><div class="window-user-logout">Odhlásiť sa</div></a>
+    <a href="<?php echo site_url('users/logout/');?>"><div class="window-user-logout">Odhlásiť sa</div></a>
     <div class="window-user-drives">
       <div class="window-user-drives-title">Tvoje jazdy</div>
       <div class="window-user-drives-views">
@@ -71,7 +75,7 @@
                   <div class="window-user-drives-views-info-car-title">Auto</div>
                   <div class="window-user-drives-views-info-car-info">'.$value['spz'].'</div>
                 </div>
-              </div>'; 
+              </div></a>';
             }
           }
         ?>

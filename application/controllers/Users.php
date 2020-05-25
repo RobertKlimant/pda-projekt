@@ -20,6 +20,8 @@ class Users extends CI_Controller {
 			redirect('/login');
 		}
 
+		$data['check'] = $check;
+
 		$array = $this->Users_model->nacitajData($check);
 
 		$data['array'] = $array;
@@ -27,6 +29,7 @@ class Users extends CI_Controller {
 		$spodokArray = $this->Users_model->nacitajSpodok($check);
 
 		$data['spodokArray'] = $spodokArray;
+
 
 		$this->load->view('templates/header', $data);
 		$this->load->view('users/index', $data);
@@ -88,5 +91,16 @@ class Users extends CI_Controller {
 		$this->load->view('templates/header', $data);
 		$this->load->view('users/view', $data);
 		$this->load->view('templates/footer', $data);
+	}
+
+	public function logout() {
+		$check = $this->session->userdata('check');
+
+		if (empty($check)) {
+			redirect('/login');
+		}
+
+		$this->session->sess_destroy();
+		redirect('/login');
 	}
 }

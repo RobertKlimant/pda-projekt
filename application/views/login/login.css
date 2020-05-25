@@ -113,6 +113,24 @@ a {
   border: none;
 }
 
+.input-box>select {
+  position: absolute;
+  display: block;
+  width: calc(100% - 15px);
+  height: auto;
+  top: 80%;
+  left: 0;
+  -webkit-transform: translateY(-80%);
+  transform: translateY(-80%);
+  margin: 0;
+  padding: 0 5px 0 10px;
+  font-size: 18px;
+  outline: none;
+  color: rgb(0, 0, 0);
+  background-color: transparent;
+  border: none;
+}
+
 .input-box-button {
   position: relative;
   display: block;
